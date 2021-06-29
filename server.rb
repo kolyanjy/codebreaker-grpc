@@ -1,4 +1,4 @@
-require_relative 'autoload.rb'
+require_relative 'autoload'
 
 class Server
   def self.run

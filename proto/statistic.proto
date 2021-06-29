@@ -1,0 +1,18 @@
+
+syntax = "proto3";
+
+service Codebreaker {
+  rpc Statistic (Request) returns (Reply) {}
+}
+message Request {}
+
+message Reply {
+  repeated Item statistic = 1;
+}
+message Item {
+  string name = 1;
+  int32 attempts = 2;
+  int32 hints = 3;
+  string level = 4;
+  string date = 5;
+}
