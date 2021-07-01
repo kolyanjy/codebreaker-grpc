@@ -15,7 +15,11 @@ module Registration
 
 
       def registration(request_args, _unused_call)
-        Registration::Reply.new(message: ::RegistrationService.call(request_args))
+        status, msg = ::RegistrationService.call(request_args)
+
+        raise GRPC::BadStatus.new(GRPC::Core::StatusCodes::INVALID_ARGUMENT, msg) if status == :failure
+
+        Registration::Reply.new(message: )
       end
     end
   end
