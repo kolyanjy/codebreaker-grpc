@@ -1,6 +1,8 @@
 
 syntax = "proto3";
 
+package registration;
+
 service Codebreaker {
   rpc Registration (Request) returns (Reply) {}
 }
