@@ -11,11 +11,19 @@ class Router
   rpc :Statistic, ::StatisticPb::Request, ::HintPb::Reply
 
   def registration(request_args, _unused_call)
-    RegistrationPb::Reply.new(message: RegistrationService.call(request_args))
+    status, msg = RegistrationService.call(request_args)
+
+    raise GRPC::BadStatus.new(GRPC::Core::StatusCodes::INVALID_ARGUMENT, msg) if status == :failure
+
+    RegistrationPb::Reply.new(message: msg)
   end
 
   def guess(request_args, _unused_call)
-    GuessPb::Reply.new(answer: GuessService.call(request_args))
+    status, msg = GuessService.call(request_args)
+
+    raise GRPC::BadStatus.new(GRPC::Core::StatusCodes::INVALID_ARGUMENT, msg) if status == :failure
+
+    GuessPb::Reply.new(answer: msg)
   end
 
   def hint(_request_args, _unused_call)
