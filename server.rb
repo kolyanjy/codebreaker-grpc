@@ -1,21 +1,20 @@
 require_relative 'autoload'
 
-class Server
-  def self.run
-    new
-  end
+require 'singleton'
 
-  private_class_method :new
+class Server
+  include ::Singleton
 
   def initialize
     $current_state = State.new
     s = GRPC::RpcServer.new
     s.add_http2_port('0.0.0.0:50051', :this_port_is_insecure)
-    s.handle(Router)
-    s.handle(Registration::Codebreaker::Service)
-    binding.pry
+    Dir["#{File.dirname(__FILE__)}/lib/protobuf_services/*.rb"].each do |f|
+      s.handle(Kernel.const_get("#{f.split('/').last.split('_').first.capitalize}::Codebreaker::Service"))
+    end
     s.run_till_terminated_or_interrupted([1, 'int', 'SIGQUIT'])
   end
+
 end
 
-Server.run
+Server.instance

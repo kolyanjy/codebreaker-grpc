@@ -14,7 +14,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
 end
 
-module GuessPb
+module Guess
   Request = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("guess.Request").msgclass
   Reply = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("guess.Reply").msgclass
 end

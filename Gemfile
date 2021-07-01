@@ -2,10 +2,9 @@
 
 source 'https://rubygems.org'
 
-git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
-
 gem 'codebreaker_kolyanjy'
 gem 'grpc'
+gem 'grpc-tools'
 
 group :development do
   gem 'pry'

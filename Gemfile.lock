@@ -10,6 +10,7 @@ GEM
     grpc (1.38.0)
       google-protobuf (~> 3.15)
       googleapis-common-protos-types (~> 1.0)
+    grpc-tools (1.38.0)
     method_source (1.0.0)
     parallel (1.20.1)
     parser (3.0.1.1)
@@ -40,8 +41,9 @@ PLATFORMS
 DEPENDENCIES
   codebreaker_kolyanjy
   grpc
+  grpc-tools
   pry
   rubocop
 
 BUNDLED WITH
-   2.0.2
+   2.2.21
