@@ -1,0 +1,31 @@
+---
+- :name: rwq
+  :attempts: 6
+  :hints: 0
+  :level: :easy
+  :date: 24/02/2019 22:42
+- :name: sofi
+  :attempts: 12
+  :hints: 2
+  :level: :easy
+  :date: 26/02/2019 17:25
+- :name: easy
+  :attempts: 10
+  :hints: 2
+  :level: :easy
+  :date: 07/04/2019 16:27
+- :name: name
+  :attempts: 10
+  :hints: 2
+  :level: :easy
+  :date: 24/04/2019 15:01
+- :name: vasya
+  :attempts: 10
+  :hints: 0
+  :level: :easy
+  :date: 01/07/2021 20:25
+- :name: lolkek
+  :attempts: 4
+  :hints: 2
+  :level: :easy
+  :date: 01/07/2021 20:28

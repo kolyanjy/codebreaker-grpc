@@ -1,0 +1,14 @@
+
+syntax = "proto3";
+
+package hint;
+
+service Codebreaker {
+  rpc Hint (Request) returns (Reply) {}
+}
+
+message Request {}
+
+message Reply {
+  string hint = 1;
+}
