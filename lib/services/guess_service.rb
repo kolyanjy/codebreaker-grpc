@@ -5,9 +5,9 @@ class GuessService
 
   def call(request_args)
     if validate(request_args.guess, 'guess')
-      check_game_answer($current_state.game.guess(request_args.guess))
+      [:success, check_game_answer($current_state.game.guess(request_args.guess))]
     else
-      'Guess invalid'
+      [:failure, 'Guess invalid']
     end
   end
 
